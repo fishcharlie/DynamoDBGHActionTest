@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # - name: Start DynamoDB
-      #   uses: rrainn/dynamodb-action@v4.0.0
+      - name: Start DynamoDB
+        uses: rrainn/dynamodb-action@v4.0.0
 
       - name: Use Node.js
         uses: actions/setup-node@v3
