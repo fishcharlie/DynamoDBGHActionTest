@@ -1,0 +1,29 @@
+name: CI
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Start DynamoDB
+        uses: rrainn/dynamodb-action@v4.0.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+
+      - name: netstat
+        run: netstat -l
+
+      - name: Check DynamoDB
+        run: lsof -i :8000
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run
+        run: node index.js
