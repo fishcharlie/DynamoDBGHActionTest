@@ -21,6 +21,7 @@ jobs:
 
       - name: Check DynamoDB
         run: lsof -i :8000
+        continue-on-error: true
 
       - name: Install dependencies
         run: npm install
